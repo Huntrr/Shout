@@ -15,101 +15,102 @@ html(lang="en")
     title Shoutt! - Local Chat
   
   body
-    // The room selector page
-    .page#page-more
-      .header.accent
-        .left
-        h1.center Select a room
-        a.right(href="#" class="fa fa-plus" data-target="add" data-type="dialog")
-        // ^^^ should pop up as a dialog ^^^
-      .content.normal
-        //List of all joined rooms
-        h3 Joined
-        ul.rooms
-          a(href="#" data-target="main" data-value="local" data-type="room")
-            li.current
-              .left Local chat (default)
-              .right(class="fa fa-chevron-right")
-          a(href="#" data-target="main" data-value="r10231041" data-type="room")
-            li
-              .left Big Event #1
-              .right(class="fa fa-chevron-right")
-        
-        //List of ALL active rooms (by popularity)
-        h3 Not (yet) joined
-        ul.rooms
-          a(href="#" data-target="main" data-value="r10632071" data-type="room")
-            li
-              .left Big Event #2
-              .right(class="fa fa-chevron-right")
-          a(href="#" data-target="main" data-value="r20636081" data-type="room")
-            li
-              .left Big Event #3
-              .right(class="fa fa-chevron-right")
-            
-    // The create room dialog
-    .dialog#dialog-add.normal
-      h2 Create an event
-      form
-        input(type="text" name="create-name" placeholder="Event name")
-        br
-        input.large(type="submit" value="Start shouting!")
-    
-      
-    // The main chat window (DEFAULT)
-    .page#page-main.default
-      .header.accent
-        a.left(href="#" class="fa fa-bars" data-target="more" data-type="page")
-        h1.center Shoutt
-        a.right(href="#" class="fa fa-cog" data-target="options" data-type="page")
-      .content.normal
-        ul.messages
-          li.other 
-            .message Yo yo yo, wassup people?
-            .time 2s
-          li.other 
-            .message Nm, you?
-            .time 4s
-          li.self 
-            .message haha im good. what's the hapz??
-            .time 4s
-          li.self
-            .message guys?
-            .time 10s
-          li.other
-            .message dw, still here ;)
-            .time 11s
-          li.admin
-            .message Testing the administrative announcement system.
-            .time 5s
-      .footer.accent
-        form.messenger
-          input#messagebox(type="text" name="message-box" placeholder="What do you want to say?")
-          select#timeselect
-            option(value="1") 1 sec
-            option(value="2") 2 sec
-            option(value="3") 3 sec
-            option(value="5") 5 sec
-            option(value="7" selected="selected") 7 sec
-            option(value="10") 10 sec
-            option(value="15") 15 sec
-            option(value="20") 20 sec
-            option(value="30") 30 sec
-          input#submit(type="submit" value="Shout!")
-      
-    // The options pane
-    .page#page-options
-      .header.accent
-        a.left(href="#" class="fa fa-comment" data-target="main" data-type="page")
-        h1.center Options
-      .content
-        ul.options
-          li
-            .left Check?
-            .right
-              input(type="checkbox")
+    #container
+      // The room selector page
+      .page#page-more
+        .header.accent
+          .left
+          h1.center Select a room
+          a.right(href="#" class="fa fa-plus" data-target="add" data-type="dialog")
+          // ^^^ should pop up as a dialog ^^^
+        .content.normal
+          //List of all joined rooms
+          h3 Joined
+          ul.rooms
+            a(href="#" data-target="main" data-value="local" data-type="room")
+              li.current
+                .left Local chat (default)
+                .right(class="fa fa-chevron-right")
+            a(href="#" data-target="main" data-value="r10231041" data-type="room")
+              li
+                .left Big Event #1
+                .right(class="fa fa-chevron-right")
           
+          //List of ALL active rooms (by popularity)
+          h3 Not (yet) joined
+          ul.rooms
+            a(href="#" data-target="main" data-value="r10632071" data-type="room")
+              li
+                .left Big Event #2
+                .right(class="fa fa-chevron-right")
+            a(href="#" data-target="main" data-value="r20636081" data-type="room")
+              li
+                .left Big Event #3
+                .right(class="fa fa-chevron-right")
               
+      // The create room dialog
+      .dialog#dialog-add.normal
+        h2 Create an event
+        form
+          input(type="text" name="create-name" placeholder="Event name")
+          br
+          input.large(type="submit" value="Start shouting!")
       
-    script(type="text/javascript" src="cordova.js")
-    script(type="text/javascript" src="js/script.js")
+        
+      // The main chat window (DEFAULT)
+      .page#page-main.default
+        .header.accent
+          a.left(href="#" class="fa fa-bars" data-target="more" data-type="page")
+          h1.center Shoutt
+          a.right(href="#" class="fa fa-cog" data-target="options" data-type="page")
+        .content.normal
+          ul.messages
+            li.other 
+              .message Yo yo yo, wassup people?
+              .time 2s
+            li.other 
+              .message Nm, you?
+              .time 4s
+            li.self 
+              .message haha im good. what's the hapz??
+              .time 4s
+            li.self
+              .message guys?
+              .time 10s
+            li.other
+              .message dw, still here ;)
+              .time 11s
+            li.admin
+              .message Testing the administrative announcement system.
+              .time 5s
+        .footer.accent
+          form.messenger
+            input#messagebox(type="text" name="message-box" placeholder="What do you want to say?")
+            select#timeselect
+              option(value="1") 1 sec
+              option(value="2") 2 sec
+              option(value="3") 3 sec
+              option(value="5") 5 sec
+              option(value="7" selected="selected") 7 sec
+              option(value="10") 10 sec
+              option(value="15") 15 sec
+              option(value="20") 20 sec
+              option(value="30") 30 sec
+            input#submit(type="submit" value="Shout!")
+        
+      // The options pane
+      .page#page-options
+        .header.accent
+          a.left(href="#" class="fa fa-comment" data-target="main" data-type="page")
+          h1.center Options
+        .content
+          ul.options
+            li
+              .left Check?
+              .right
+                input(type="checkbox")
+            
+                
+        
+      script(type="text/javascript" src="cordova.js")
+      script(type="text/javascript" src="js/script.js")

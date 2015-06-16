@@ -14,9 +14,13 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Shoutt</name>
     <description>
-        The local anonymous messenger.
+        The local anonymous shouting app.
     </description>
     <author email="me@hunterlightman.com" href="http://hunterlightman.com">
         Hunter Lightman
@@ -24,4 +28,6 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 </widget>

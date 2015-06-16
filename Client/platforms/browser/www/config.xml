@@ -2,7 +2,7 @@
 <widget id="com.hunterlightman.shoutt" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Shoutt</name>
     <description>
-        The local anonymous messenger.
+        The local anonymous shouting app.
     </description>
     <author email="me@hunterlightman.com" href="http://hunterlightman.com">
         Hunter Lightman
@@ -10,4 +10,6 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 </widget>

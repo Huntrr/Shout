@@ -53,6 +53,14 @@ a
       color #DDDDDD
 
 //components
+#container
+  width 100%
+  float left
+  white-space nowrap
+
+#container::-webkit-scrollbar
+  display none 
+
 .dialog
   display none
 
@@ -71,7 +79,13 @@ a
   text-align left
   
 .page
-  float left
+  display inline-block
+  top 0
+  bottom 0
+  *dsplay inline /* For IE7*/
+  *zoom 1 /* For IE7*/
+  white-space:normal;
+  overflow hidden
   min-width 20ex
   h3
     margin-top 10px
@@ -168,14 +182,14 @@ a
         margin-top 10px
 
 //scrollbar
-::-webkit-scrollbar
+.page::-webkit-scrollbar
   width 12px
 
-::-webkit-scrollbar-track
+.page::-webkit-scrollbar-track
   background-color rgba(0, 0, 0, 0.2)
   border-radius: 10px
 
-::-webkit-scrollbar-thumb
+.page::-webkit-scrollbar-thumb
   border-radius 10px
   background-color rgba(0, 0, 0, 0.3)
   

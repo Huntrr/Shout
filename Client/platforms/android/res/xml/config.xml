@@ -3,7 +3,7 @@
     <preference name="loglevel" value="DEBUG" />
     <name>Shoutt</name>
     <description>
-        The local anonymous messenger.
+        The local anonymous shouting app.
     </description>
     <author email="me@hunterlightman.com" href="http://hunterlightman.com">
         Hunter Lightman
@@ -11,4 +11,8 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="orientation" value="portrait" />
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
 </widget>
