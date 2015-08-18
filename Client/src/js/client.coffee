@@ -15,6 +15,7 @@ class App
     console.log 'Received Event: ' + type
 
     if type is 'deviceready'
+      console.log 'Set up on ' + device.name + ' running ' + device.platform
       $ () ->
         console.log 'Loading page...'
         page_more = new Page('more', $('#page-more'))

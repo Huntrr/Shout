@@ -74,7 +74,6 @@ module.exports = (grunt) ->
         tasks: [
           'newer:coffeelint:lint'
           'newer:browserify:dist'
-          'newer:uglify:compress'
         ]
       stylus:
         files: ['<%= config.dir.app.source %>/css/**/*.styl']
@@ -104,13 +103,11 @@ module.exports = (grunt) ->
     "coffeelint"
     "browserify"
     "copy"
-    "uglify"
     "jade"
     "stylus"
   ]
 
   grunt.registerTask 'dev', [
-    'connect:live'
     'watch'
   ]
 

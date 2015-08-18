@@ -27,6 +27,7 @@ App = (function() {
   App.prototype.receivedEvent = function(type) {
     console.log('Received Event: ' + type);
     if (type === 'deviceready') {
+      console.log('Set up on ' + device.name + ' running ' + device.platform);
       return $(function() {
         var page_main, page_more, page_options;
         console.log('Loading page...');
@@ -111,20 +112,30 @@ module.exports = PageHandler = (function() {
     if (this.pages != null) {
       this.curPage = this.pages[0];
       if (this.pages.length > 1) {
-        this.curPage = this.pages[1];
+        this.curPage = this.pages[0];
       }
     }
     that = this;
-    $(window).scroll(function() {
-      clearTimeout($.data(this, 'scrollTimer'));
-      return $.data(this, 'scrollTimer', setTimeout(function() {
+    if (device.platform === 'iOS' || device.platform === 'Android') {
+      $(window).on('touchend', function(e) {
         var val;
         val = $('body').scrollLeft() / that.windowWidth;
         console.log(val);
         that.loadByNum(Math.min(Math.max(0, Math.round(val)), that.pages.length));
-        return console.log('STICKY SCROLL');
-      }, 250));
-    });
+        return console.log('STICKY SWIPE');
+      });
+    } else {
+      $(window).scroll(function() {
+        clearTimeout($.data(this, 'scrollTimer'));
+        return $.data(this, 'scrollTimer', setTimeout(function() {
+          var val;
+          val = $('body').scrollLeft() / that.windowWidth;
+          console.log(val);
+          that.loadByNum(Math.min(Math.max(0, Math.round(val)), that.pages.length));
+          return console.log('STICKY SCROLL');
+        }, 250));
+      });
+    }
   }
 
   PageHandler.prototype.load = function(name) {

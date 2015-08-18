@@ -6,12 +6,20 @@ module.exports = [
         "clobbers": [
             "window.StatusBar"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.statusbar": "0.1.10"
+    "org.apache.cordova.statusbar": "0.1.10",
+    "cordova-plugin-device": "1.0.1-dev"
 }
 // BOTTOM OF METADATA
 });

@@ -18,6 +18,9 @@
         <param name="ios-package" value="CDVStatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
     <name>Shoutt</name>
     <description>
         The local anonymous shouting app.

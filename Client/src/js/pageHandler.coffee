@@ -8,14 +8,22 @@ module.exports = class PageHandler
         @curPage = @pages[1]
 
     that = @
-    $(window).scroll () ->
-      clearTimeout $.data(@, 'scrollTimer')
-      $.data @, 'scrollTimer', setTimeout () ->
+    if device.platform is 'iOS' or device.platform is 'Android'
+      $(window).on 'touchend', (e) ->
         val = $('body').scrollLeft() / that.windowWidth
         console.log val
         that.loadByNum Math.min(Math.max(0, Math.round(val)), that.pages.length)
-        console.log 'STICKY SCROLL'
-      , 250
+        console.log 'STICKY SWIPE'
+
+    else
+      $(window).scroll () ->
+        clearTimeout $.data(@, 'scrollTimer')
+        $.data @, 'scrollTimer', setTimeout () ->
+          val = $('body').scrollLeft() / that.windowWidth
+          console.log val
+          that.loadByNum Math.min(Math.max(0, Math.round(val)), that.pages.length)
+          console.log 'STICKY SCROLL'
+        , 250
 
   load: (name) ->
     for page in @pages
